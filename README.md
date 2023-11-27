@@ -1,37 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SpaceX Clone App
 
-## Getting Started
+This project is a clone of the SpaceX site, it's for educational and non-commercial purposes.
+It's using the [SpaceX GraphQL API](https://github.com/apollographql/spacex) which is a recreation of the SpaceXLand/api project. The code for this recreation is open source.
 
-First, run the development server:
+## Demo link:
+
+Access the site at [Vercel](https://spacex-clone-sigma.vercel.app)
+
+## Table of Content:
+
+- [About The App](#about-the-app)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Approach](#approach)
+- [State Management](#state-management)
+- [Assumptions](#assumptions)
+- [Technical Debt](#technical-debt)
+- [License](#license)
+
+## About The App
+
+This is an app that integrates the GraphQL API and fetches 4 launches made by Space X. If you want to see more launches you can click on the button "Load More" and that fetches 4 more launches to the UI.
+Eventually, if you click on a launch, it takes you to a page where it shows you more details.
+
+## Technologies
+
+I used `React`, `Next.js`, `Typescript` and `Apollo-Client` as the main technologies.
+
+## Setup
+
+Download or clone the repository, then on the folder do
+
+```bash
+npm install
+# or
+pnpm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Approach
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Thinking about a project that could scale, I decided to use `Apollo Client` and `Next.js`.
 
-## Learn More
+`Apollo Client` provides a powerful cache system that allows you to manage the state of your application and access data quickly without having to make a network request. When you use `Apollo Client` to make a `GraphQL` query, the results are automatically stored in the cache, making subsequent requests for the same data much faster.
 
-To learn more about Next.js, take a look at the following resources:
+To achieve **SSR/SSG/ISR** in a `Next.js` app, you can make a network request on the server using `Apollo Client` and pre-populate the cache with the data. This allows the data to be immediately available on the client side, without the need for additional network requests.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+By using the cache in combination with **SSR/SSG/ISR**, you can greatly improve the performance and user experience of your app, ensuring that data is always available quickly and reliably.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### State Management:
 
-## Deploy on Vercel
+Since Apollo Client 3 manages it's own redux state internally and cache it's not necessary to have redux, at least to keep persistence on the data we fetch. Maybe at some point it will be necessary, but for application state management.
+For this project I used `React Context` to maintain the pagination state and share it between the components that need it, avoiding moving the state to some component in the higher hierarchy and doing prop drilling to the child components.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Assumptions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# space-x-clone
+I assumed that clicking on a release takes you to a page with more details about this release.
+
+## Technical debt
+
+Include a custom 404 page to handle pages, and an `ErrorBoundary` component to centralize error handling among other specific and minor things.
+
+## License
+
+MIT license
