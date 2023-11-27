@@ -1,0 +1,32 @@
+.launchList {
+  padding: 3rem 2rem;
+  min-height: calc(100dvh - 550px);
+  background-color: var(--clr-gray-100);
+}
+
+.moreInfo {
+  width: 100%;
+  display: flex;
+  padding: 3rem 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  padding-left: 0.5rem;
+  font-size: var(--fs-lg2);
+  font-weight: var(--fw-semi-bold);
+  color: var(--clr-primary-400);
+}
+
+.clusters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 2rem;
+}

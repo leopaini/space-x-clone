@@ -1,0 +1,14 @@
+.header {
+  left: 50%;
+  z-index: 1;
+  max-width: 1440px;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.logo {
+  width: 210px;
+  display: block;
+  padding: 1rem 0 0 2rem;
+  color: var(--clr-neutral-400);
+}
