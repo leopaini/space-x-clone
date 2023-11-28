@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { Suspense } from "react";
 import usePagination from "@/hooks/usePagination";
 import { RotatingLines } from "react-loader-spinner";
-import { SuspenseFallback, Launch } from "@/components";
+import { SuspenseFallback, LaunchCluster } from "@/components";
 
 import styles from "./LaunchList.module.css";
 
@@ -15,7 +15,7 @@ function Launches() {
     <div className={clsx("container", styles.launchList)}>
       <div className={styles.clusters} ref={scrollRef}>
         {data.launches.map((launch) => (
-          <Launch key={launch.id} launch={launch} />
+          <LaunchCluster key={launch.id} launch={launch} />
         ))}
       </div>
 

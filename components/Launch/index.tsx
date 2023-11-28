@@ -4,7 +4,7 @@ import type { Launch, LaunchProps } from "@/types";
 
 import styles from "./Launch.module.css";
 
-export default function Launch({ launch }: LaunchProps) {
+export default function LaunchCluster({ launch }: LaunchProps) {
   const backgroundImg = getImageUrlOrRdm(launch.links.flickr_images);
   const localeDate = new Date(launch.launch_date_local).toLocaleDateString(
     "en-US",

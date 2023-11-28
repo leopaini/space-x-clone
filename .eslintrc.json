@@ -2,7 +2,6 @@
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
-    "@typescript-eslint",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
@@ -10,7 +9,6 @@
     "no-undef": "off",
     "no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
-    "react/no-unescaped-entities": "off",
-    "@typescript-eslint/no-unused-vars": ["error"]
+    "react/no-unescaped-entities": "off"
   }
 }

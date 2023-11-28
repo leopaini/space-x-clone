@@ -3,7 +3,7 @@ import React from "react";
 export default function BackChevron() {
   return (
     <svg
-      arial-label="back chevron"
+      aria-label="back chevron"
       xmlns="http://www.w3.org/2000/svg"
       width="6.27"
       height="10.154"
